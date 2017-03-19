@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Strata by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/static/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie8.css" /><![endif]-->
+</head>
+<body id="top">
+
+{{template "header.html"}}
+
+<!-- Main -->
+<div id="main">
+    {{if eq .User ""}}
+    <!-- not sing in -->
+    <section id="notsignin">
+        <form class="form-signin" action="/login" method="post">
+            <input type="email" id="inputEmail" name="useremail" placeholder="Email address" required autofocus>
+            <input type="password" id="inputPassword" name="password" placeholder="Password" required>
+            <input type="text" name="logout" id="logoutt1" value="false"
+                   style="position: absolute; left: -9999px"/>
+            <input type="submit" id="login" name="login" value="登录" align="center"/>
+            {{if .Failed}}
+            <p>Incorrect username or password.</p>
+            {{end}}
+        </form>
+    </section>
+    {{else}}
+    <!--sign in-->
+    <section id="alreadysignin">
+        <h3>Hello, {{.User}}</h3>
+        <form class="form-signin" action="/login" method="post">
+            <input type="text" name="logout" id="logoutt2" value="true"
+                   style="position: absolute; left: -9999px"/>
+            <input type="submit" id="logout" name="submit" value="登出" align="center"/>
+        </form>
+    </section>
+    {{end}}
+</div>
+</body>
+</html>
