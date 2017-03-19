@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"quickstart/controllers"
+	"gosite/controllers"
 	"github.com/astaxie/beego"
 	"fmt"
 	"github.com/astaxie/beego/context"

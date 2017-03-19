@@ -15,7 +15,7 @@ type BlogController struct {
 }
 
 func (c *BlogController) Get() {
-	content, err := ioutil.ReadFile("/home/yihan/golang/src/quickstart/static/text/example.md")
+	content, err := ioutil.ReadFile("/home/yihan/golang/src/gosite/static/text/example.md")
 	md := blackfriday.MarkdownCommon(content)
 	html := bluemonday.UGCPolicy().SanitizeBytes(md)
 	//id := c.Ctx.Input.Param(":id")
